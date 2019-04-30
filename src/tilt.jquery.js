@@ -135,7 +135,7 @@
 
             if (this.reset) {
                 this.reset = false;
-                $(this).css('transform', `perspective(${this.settings.perspective}px) rotateX(0deg) rotateY(0deg)`);
+                $(this).css('transform', `perspective(${this.settings.perspective}px) rotateX(${(this.settings.defaultXRotation ? this.settings.defaultXRotation : 0)}deg) rotateY(${(this.settings.defaultYRotation ? this.settings.defaultYRotation : 0)}deg) rotateZ(${(this.settings.defaultZRotation ? this.settings.defaultZRotation : 0)}deg)`);
 
                 // Rotate glare if enabled
                 if (this.settings.glare){
@@ -145,7 +145,7 @@
 
                 return;
             } else {
-                $(this).css('transform', `perspective(${this.settings.perspective}px) rotateX(${this.settings.disableAxis === 'x' ? 0 : this.transforms.tiltY}deg) rotateY(${this.settings.disableAxis === 'y' ? 0 : this.transforms.tiltX}deg) scale3d(${this.settings.scale},${this.settings.scale},${this.settings.scale})`);
+                $(this).css('transform', `perspective(${this.settings.perspective}px) rotateX(${this.settings.disableAxis === 'x' ? 0 : this.transforms.tiltY}deg) rotateY(${this.settings.disableAxis === 'y' ? 0 : this.transforms.tiltX}deg) rotateZ(${this.settings.zRotation ? this.settings.zRotation : 0}deg) scale3d(${this.settings.scale},${this.settings.scale},${this.settings.scale})`);
 
                 // Rotate glare if enabled
                 if (this.settings.glare){
